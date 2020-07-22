@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using log4net;
 using System.Collections.ObjectModel;
+using System.Threading;
 
 namespace alza
 {
@@ -37,6 +38,7 @@ namespace alza
         public void searchByText(string text) {
             searchField().SendKeys(text);
             log.Debug("Search by text: " + text);
+            Thread.Sleep(2000);
         }
 
         public void clickOnIT() {

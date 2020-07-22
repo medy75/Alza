@@ -14,16 +14,16 @@ namespace alza
             this.driver = driver;
         }
 
-        public void goToUrl(string url) {
+        protected void goToUrl(string url) {
             driver.Navigate().GoToUrl(url);
         }
 
-        public IWebElement findElement(By by) {
+        protected IWebElement findElement(By by) {
             return new WebDriverWait(driver, TimeSpan.FromSeconds(15))
                 .Until(ExpectedConditions.ElementIsVisible(by));
         }
 
-        public ReadOnlyCollection<IWebElement> findElements(By by) {
+        protected ReadOnlyCollection<IWebElement> findElements(By by) {
             waitForElement(by);
             return driver.FindElements(by);
         }
